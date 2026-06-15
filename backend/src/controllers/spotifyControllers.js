@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const redirectUri = "http://127.0.0.1:5008/auth/callback";
+const redirectUri = process.env.REDIRECT_URI;
 
 let accessToken = '';
 let refreshToken = '';
