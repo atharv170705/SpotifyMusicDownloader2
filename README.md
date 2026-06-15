@@ -47,6 +47,12 @@ Select any playlist from your Spotify account.
 
 Tracks are matched through YouTube Music and downloaded as MP3 files.
 
+### 5. Direct YouTube Music Import
+
+Users can also paste a YouTube Music song URL and download tracks directly.
+
+![YouTube Music Import](screenshots/youtube-import.png)
+
 ---
 
 # Manual Installation
