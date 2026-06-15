@@ -2,9 +2,6 @@ import axios from "axios";
 
 const redirectUri = process.env.REDIRECT_URI;
 
-let accessToken = '';
-let refreshToken = '';
-
 const spotifyLogin = async (req, res) => {
     const client_id = process.env.CLIENT_ID;
     const scopes = [
@@ -56,10 +53,20 @@ const spotifyAuthCallback = async (req, res) => {
             }
         );
 
-        accessToken = response.data.access_token;
-        refreshToken = response.data.refresh_token;
+        const accessToken = response.data.access_token;
+        const refreshToken = response.data.refresh_token;
 
-        res.redirect("http://localhost:5173/playlists");
+        const options = {
+            httpOnly: true,
+            secure: false,
+            sameSite: "lax",
+        };
+
+        res
+            .cookie("access_token", accessToken, options)
+            .cookie("refresh_token", refreshToken, options)
+
+        res.redirect("http://127.0.0.1:5173/playlists");
 
     } catch (error) {
         console.error(
@@ -73,6 +80,7 @@ const spotifyAuthCallback = async (req, res) => {
 }
 
 const getPlaylists = async (req, res) => {
+    const accessToken = req.cookies.access_token;
     if(!accessToken) {
         return res.status(401).json({
             error: "Not logged in"
@@ -102,6 +110,7 @@ const getPlaylists = async (req, res) => {
 }
 
 const fetchPlaylist = async (req, res) => {
+    const accessToken = req.cookies.access_token;
     try {
         const {playlistId} = req.params;
         const response = await axios.get(

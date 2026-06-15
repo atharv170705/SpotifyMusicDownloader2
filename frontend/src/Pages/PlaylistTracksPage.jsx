@@ -16,9 +16,7 @@ function PlaylistTracksPage() {
 
     async function fetchPlaylist() {
         try {
-            const res = await axios.get(
-                `http://127.0.0.1:5008/playlists/${playlistId}`
-            );
+            const res = await axios.get(`http://127.0.0.1:5008/playlists/${playlistId}`, {withCredentials: true});
             console.log(res.data);
             
             setPlaylist({

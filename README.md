@@ -106,7 +106,7 @@ yt-dlp --version
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/atharv170705/SpotifyMusicDownloader.git
+git clone https://github.com/atharv170705/SpotifyMusicDownloader2.git
 cd SpotifyMusicDownloader
 ```
 
@@ -124,10 +124,10 @@ Create a `.env` file and add:
 
 ```env
 PORT=5008
-CORS_ORIGIN=http://localhost:5173
+CORS_ORIGIN=http://127.0.0.1:5173
 CLIENT_ID=your_client_id
 CLIENT_SECRET=your_client_secret
-REDIRECT_URI=http://localhost:5008/auth/callback
+REDIRECT_URI=http://127.0.0.1:5008/auth/callback
 ```
 
 ### Spotify API Credentials
@@ -150,7 +150,7 @@ To obtain your Spotify credentials:
 6. Under **Redirect URIs**, add:
 
 ```text
-http://localhost:5008/auth/callback
+http://127.0.0.1:5008/auth/callback
 ```
 
 > Make sure the redirect URI configured in the Spotify Developer Dashboard exactly matches the value of `REDIRECT_URI` in your `.env` file.
@@ -198,7 +198,7 @@ npm run dev
 After both servers are running, open:
 
 ```text
-http://localhost:5173
+http://127.0.0.1:5173
 ```
 
 Login with your Spotify account and start downloading songs.

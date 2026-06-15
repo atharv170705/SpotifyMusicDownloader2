@@ -11,11 +11,10 @@ function SpotifyPlaylistPage() {
   const { playlists, setPlaylists } = useContext(PlaylistContext);
   const navigate = useNavigate();
   useEffect(() => {
-    // Only fetch if the array is empty (like after a reload)
     if (playlists.length === 0) {
       const fetchPlaylists = async () => {
         try {
-          const response = await axios.get("http://127.0.0.1:5008/playlists");
+          const response = await axios.get("http://127.0.0.1:5008/playlists", {withCredentials: true});
           setPlaylists(response.data);
         } catch (error) {
           console.error("Failed to re-fetch playlists:", error.message);
