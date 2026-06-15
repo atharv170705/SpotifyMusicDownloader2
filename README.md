@@ -25,6 +25,29 @@ The application:
 - 🎯 Clean and responsive UI
 
 ---
+## Application Flow
+
+### 1. Choose Import Method
+
+![Home](screenshots/home.png)
+
+### 2. Connect Spotify Account
+
+Users authenticate using Spotify OAuth 2.0 and grant playlist access.
+
+![Playlists](screenshots/playlists.png)
+
+### 3. Browse User Playlists
+
+Select any playlist from your Spotify account.
+
+![Playlist](screenshots/playlist-view.png)
+
+### 4. Download Songs
+
+Tracks are matched through YouTube Music and downloaded as MP3 files.
+
+---
 
 # Manual Installation
 
@@ -248,6 +271,12 @@ SpotifyMusicDownloader/
 │   ├── .env
 │   └── package.json
 │
+├── screenshots/
+│   ├── home.png
+│   ├── youtube-import.png
+│   ├── playlists.png
+│   └── playlist-details.png
+│     
 ├── .gitignore
 └── README.md
 ```
